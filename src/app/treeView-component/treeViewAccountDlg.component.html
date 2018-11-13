@@ -1,0 +1,56 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+<div >
+    <h1 mat-dialog-title>{{selectedLiteral}}</h1> 
+
+    <div md-dialog-content  style="width: 400px; font-size: 13px;">    
+
+        <mat-form-field>    
+            <input matInput placeholder="Form: " disabled>
+            <div>
+            <label> {{selectedForm}} </label>
+            </div>    
+        </mat-form-field>
+
+        <br>
+        <mat-form-field>    
+            <input matInput placeholder="Mapcode: " disabled>
+            <div>
+            <label> {{selectedMapCode}} </label>
+            </div>    
+        </mat-form-field>
+
+        <br>
+        <mat-form-field>    
+            <input matInput placeholder="Hierarchy: " disabled>
+            <div>
+            <label> {{selectedHierarchy}} </label>
+            </div>    
+        </mat-form-field>
+
+        <br>
+        <mat-form-field>    
+            <input matInput placeholder="Amount: " disabled>
+            <div>
+            <label> {{selectedAmount}} </label>
+            </div>    
+        </mat-form-field>
+
+        <br>
+        <mat-form-field>
+            <mat-select placeholder="Last Transaction: " [(ngModel)]="selectedDate">
+                <mat-option *ngFor="let t of transactions_list" [value]="t.REPORTDATE + '::' + t.FINANCIALREPORTTYPE">
+                    {{ t.REPORTDATE }}: {{ t.FINANCIALREPORTTYPE }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <br>
+    <div mat-dialog-actions align="bottom">
+        <!--<button mat-button [mat-dialog-close]="" cdkFocusInitial>OK</button>-->
+        <button mat-raised-button color="primary" [mat-dialog-close]="" cdkFocusInitial>OK</button>  
+    </div>
+
+</div>
+

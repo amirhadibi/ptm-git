@@ -1,0 +1,14 @@
+<div class="panel-doclist">
+     <div class="panel-body">
+        <!--<div class="cellContainer" style="width: 100%; height: 100%;" >-->
+            <documentList #docList
+                (alertEvent)="alert.showAlert(docList.gMessage)"
+            ></documentList>
+            
+            <alert #alert hidden></alert>
+
+        <!--</div>-->
+     </div>
+</div>
+
+    

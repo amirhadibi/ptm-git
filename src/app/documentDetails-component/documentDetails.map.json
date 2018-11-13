@@ -1,0 +1,5 @@
+{
+  "method": "GET",
+  "DOCUMENTID": $input.params('DOCUMENTID'), 
+  "FORMCODE": "$input.params('FORMCODE')" 
+}

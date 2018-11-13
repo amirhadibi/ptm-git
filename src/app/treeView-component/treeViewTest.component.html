@@ -1,0 +1,33 @@
+<div class="trw-ftr-control-panel">
+    <div class="trw-ftr-inline-block">
+        <iui-combobox 
+            [items]="filterOptions" 
+            [controlStyle]="comboStyle" 
+            [selectedItem]="selOptions[2]" 
+            [allowDrag]="true"
+            (selectedItemChanged)="filterOptionChanged($event, 2)"
+        >
+            <iui-item *ngFor="let option of filterOptions" [text]="option.text"></iui-item>
+        </iui-combobox>
+        <input [(ngModel)]="filterValues[2]" type="text" style="width:105px;height:23px;"/>
+        <button class="trw-ftr-button" (click)="applyFilter()">Apply Filter</button>
+        <button class="trw-ftr-button" (click)="resetFilter()">Reset</button><br/><br/><br/>    
+    </div>
+</div>
+
+
+<iui-treeview #treeviewTest
+    [items]="items" 
+    [controlStyle]="ctrlStyle"          
+    [virtualMode]="true"
+    [expanded]="false"
+    >
+    <ng-template let-item>
+        <span 
+            class="trw-lbl-item-content" 
+            (click)="onItemClick($event, item)"
+            [ngStyle]="{ color: item.textColor }"
+        > {{item.LITERAL}} : {{item.MAPCODE}}</span>
+    </ng-template>
+</iui-treeview>
+ 

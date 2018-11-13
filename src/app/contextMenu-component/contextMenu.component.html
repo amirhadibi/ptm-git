@@ -1,0 +1,6 @@
+<div #application class="block" 
+    [iuiContextMenu]="menuSettings" 
+    (itemClick)="menuItemClick($event)" 
+    [ngStyle]="{ 'font-weight': fontWeight, 'font-style': fontStyle, 'font-size': fontSize + 'em', 'text-decoration': textDecoration }">
+    <span>Right click to open the context menu</span>   
+</div>

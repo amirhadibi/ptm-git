@@ -1,0 +1,37 @@
+<div class="panel-docdetails">
+
+  <toolbar #toolbar 
+    (financialsEvent)="docDetails.getFinancials(toolbar.gFormID, toolbar.gFormatID)"
+    (saveEvent)="docDetails.saveProcess()"
+    (euroFormtEvent)="docDetails.changeToEuroFormat()"
+    (alertEvent)="alert.showAlert(toolbar.gMessage)"
+    (treeEvent)="treeView.getChartIDList(toolbar.gToggle, toolbar.gSelectedChartCode)" 
+  ></toolbar>
+  <!-- (saveDataEvent)="COMPONENT_NAME.saveData()" in case if you need to implement saveData in another component-->
+  
+  <alert #alert hidden></alert>
+      
+  <split-container>
+    <div class="leftDiv" split-behaviour="fixed" style="width: 30%; height: 100%;">
+        <!--
+          should be used below in <treeView> in case of adding a feature to find a row by clicking on an item in treeView
+          (findGridRowEvent)="docDetails.scrollToRow(treeView.selectedMapcode, treeView.selectedOrderlink, 0)" 
+        -->
+        <treeView #treeView 
+          (alertEvent)="alert.showAlert(treeView.gMessage)"
+        ></treeView>
+    </div>
+
+    <div class="rightDiv" split-behaviour="dynamic" style="width: 70%; height: 100%; float: left">
+        <topPanel #topPanel></topPanel>
+        <documentDetails #docDetails 
+          (treeEvent)="treeView.getChartIDList(treeView.gToggle, docDetails.gSelectedChartCode)" 
+          (alertEvent)="alert.showAlert(docDetails.gMessage)"
+          (documentHeaderEvent)="topPanel.getDocumentHeaderList(0)"
+          (findChartItemEvent)="treeView.scrollToAccount()" 
+          ></documentDetails>   
+    </div>
+  </split-container>
+</div>
+
+                        

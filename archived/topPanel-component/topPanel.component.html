@@ -1,0 +1,67 @@
+<div class="col-sm-2">
+
+  <div class="topPanel">
+
+    <div class="cellContainer">
+      
+      <select id="props">
+        <option *ngFor="let rep of repType_list" [value]="rep.FINANCIALREPORTTYPE">
+          {{ rep.FINANCIALREPORTTYPE }}: {{ rep.DESCRIPTION }}
+        </option>
+      </select>
+
+      <button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        title="Edit">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true" hint="Open"></span>
+      </button>
+
+    </div> <!-- End of cell container -->
+        
+    <div class="cellContainer">
+      
+      <select id="props">
+        <option *ngFor="let rep of repType_list" [value]="rep.FINANCIALREPORTTYPE">
+          {{ rep.FINANCIALREPORTTYPE }}: {{ rep.DESCRIPTION }}
+        </option>
+      </select>
+
+      <button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        title="Edit">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true" hint="Open"></span>
+      </button>
+    
+    </div> <!-- End of cell container -->
+    
+    <div class="cellContainer">
+        
+      <select id="props">
+        <option *ngFor="let rep of repType_list" [value]="rep.FINANCIALREPORTTYPE">
+          {{ rep.FINANCIALREPORTTYPE }}: {{ rep.DESCRIPTION }}
+        </option>
+      </select>
+
+      <button type="button" 
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        title="Edit">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true" hint="Open"></span>
+      </button>
+      
+    </div>
+                             
+  </div> <!-- End of topPanel -->
+
+  <div class="panel-body">
+    <div class="cellContainer" style="width: 100%; height: 100%;" >
+      <!--<app-my-grid-application></app-my-grid-application>-->
+      <!--<treeGrid-tag></treeGrid-tag>-->
+      <documentlist></documentlist>
+    </div>
+  </div>
+
+</div>  <!-- End of col-sm-2 div -->
+                        

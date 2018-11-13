@@ -1,0 +1,11 @@
+<!-- <span  [ngClass]="{classGreen:findAccount()}">{{  params.value }}</span> -->
+<!-- style="color: red">{{ params.value }} -->
+<span [ngSwitch]=getColor()>
+    <span *ngSwitchCase="'green'" [ngClass]="{clasGreen:true}" >{{params.value}}</span>
+    <span *ngSwitchCase="'red'" [ngClass]="{classRed:true}" >{{params.value}}</span>
+    <span *ngSwitchCase="'pink'" [ngClass]="{classPink:true}" >{{params.value}}</span>
+    <span *ngSwitchCase="'grey'" [ngClass]="{classGrey:true}" >{{params.value}}</span>
+    <span *ngSwitchCase="'orange'" [ngClass]="{classOrange:true}" >{{params.value}}</span>
+    <span *ngSwitchCase="'blue'" [ngClass]="{classBlue:true}" >{{params.value}}</span>
+    <span *ngSwitchDefault> {{ params.value}}</span>
+</span>

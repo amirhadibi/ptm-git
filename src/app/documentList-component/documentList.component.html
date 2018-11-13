@@ -1,0 +1,32 @@
+<!--    
+<h4>Document list retreived from Aurora database located on AWS using an endpoint</h4>
+<ul>
+    <li *ngFor="let doc of doc_list">
+        <input type="text" name="cnBox" [(ngModel)]="doc.COMPANYNAME" size="50">
+    </li>
+</ul>
+
+
+<div *ngFor="let doc of doc_list; let i=index">  
+    {{i + 1}} - {{doc.COMPANYNAME}}
+</div>  
+-->
+
+<!---<h1>Simple ag-Grid Angular Example</h1>-->
+<ag-grid-angular style="width: 100%; height: 100%;"
+    class="ag-theme-fresh"
+    [gridOptions]="gridOptions"
+    [domLayout]="autoheight"
+    [enableColResize]="true"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowModelType = "infinite"
+    [suppressCellSelection]="false"
+    
+    (gridReady)="onGridReady($event)"
+    (rowClicked)="onRowClicked($event)"
+    (rowDoubleClicked)="onRowDuobleClicked($event)"
+    (rowSelected)="onRowSelected($event)"
+    (keypress)="onKeyPress($event)"    
+    >
+</ag-grid-angular>

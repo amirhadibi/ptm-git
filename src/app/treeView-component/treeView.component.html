@@ -1,0 +1,14 @@
+<iui-treeview #treeview
+    [controlStyle]="ctrlStyle"          
+    [virtualMode]="true"
+    >
+    <ng-template let-item>
+        <span 
+            class="trw-lbl-item-content" 
+            (dblclick)="onItemDblClick($event, item)"
+            (click)="onItemClick($event, item)"
+            [ngStyle]="{ color: item.textColor }"
+        > {{item.LITERAL}} </span>
+    </ng-template>
+</iui-treeview>
+    

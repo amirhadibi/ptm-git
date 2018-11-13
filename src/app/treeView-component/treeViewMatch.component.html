@@ -1,0 +1,32 @@
+
+<div>
+    <label>Show items where: </label><br/>
+        <iui-combobox #combobox
+            [items]="filterOptions" 
+            [controlStyle]="comboStyle"
+            [selectedItem]="selectedOption" 
+            (selectedItemChanged)="filterOptionChanged($event)"
+        >
+            <iui-item *ngFor="let option of filterOptions" [text]="option.text"></iui-item>
+        </iui-combobox> 
+
+        <input [(ngModel)]="filterValue" type="text" style="width:270px; height:30.5px;"/><br/><br/>
+
+        <button class="trw-ftr-button" (click)="applyFilter()">Apply Filter</button>
+        <button class="trw-ftr-button" (click)="resetFilter()">Reset</button><br/>   
+</div>
+
+<iui-treeview #treeviewMatched
+    [items]="items" 
+    [controlStyle]="ctrlStyle"          
+    [virtualMode]="true"
+    >
+    <ng-template let-item>
+        <span 
+            class="trw-ftr-inline-block"
+            (click)="onItemClick($event, item)"
+            (afterSelect)="onAfterSelect($event)"
+        > {{item.LITERAL}} -- {{item.MAPCODE}}</span>
+    </ng-template>
+</iui-treeview>
+    

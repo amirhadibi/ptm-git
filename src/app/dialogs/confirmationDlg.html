@@ -1,0 +1,14 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+<div mat-dialog-content class="dialog-container"  [style.fontSize.px]="14">
+    <!-- <h1 mat-dialog-title>Confirm</h1> -->
+    <br>
+    <div md-dialog-content>{{confirmMessage}}</div>
+</div>
+<br>
+<div mat-dialog-actions align="top">
+    <button mat-raised-button color="primary" (click)="onCloseConfirm()" >Yes</button>  
+    <button mat-raised-button color="primary" (click)="onCloseCancel()">No</button>  
+</div>
+    
+    

@@ -1,0 +1,28 @@
+<h4>{{title}} </h4>
+
+<button type="button" 
+    (click)="scrollToItem('Music')"
+    class="btn btn-default" 
+    data-toggle="tooltip" 
+    title="Search">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+</button>
+
+<div class="feature-content">
+    <iui-treeview #treeview
+        [items]="items" 
+        [controlStyle]="ctrlStyle"          
+        [show-lines]="showLines"
+        [virtualMode]="true"            
+    >
+        <ng-template let-item>
+            <span class="trw-lbl-item-content" 
+                *ngIf="item!=editItem" 
+                (mousedown)="showEditor($event, item)" 
+                (mouseup)="cancelEditor()">
+                {{item.LITERAL}}
+            </span>
+            <input class="trw-lbl-editor" *ngIf="item==editItem" type="text" [(ngModel)]="item.LITERAL" (keydown)="editorKeyDown($event)" [iuiFocus]="editorFocused" (focus)="selectContent($event)" (blur)="editorLostFocus()" />
+        </ng-template>
+    </iui-treeview>
+</div>

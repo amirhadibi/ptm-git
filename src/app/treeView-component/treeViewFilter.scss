@@ -1,0 +1,60 @@
+
+.leftDiv {
+    height: 350px;
+    color: black;
+    padding: 4px;
+}
+
+.trw-ftr-normal
+{
+    width: 350px;
+    height: 400px;
+}
+.trw-ftr-item-label
+{
+    padding: 5px;
+}
+.trw-ftr-cbox
+{
+    background-repeat: no-repeat;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 2px 0 0;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.trw-ftr-control-panel
+{
+    float: left;
+    margin-left: 30px;
+    width: 300px;
+}
+.trw-ftr-inline-block
+{
+    display: inline-block;
+    margin: 3px 0;
+}
+.trw-ftr-inline-radio
+{
+    margin-right: 15px;
+}
+.trw-ftr-button
+{
+    display: inline-block;
+    margin: 5px;
+    width: 100px;
+    height: 25px;
+}
+.trw-ftr-cmb
+{
+    display: inline-block;
+    width: 165px;
+    margin: 0 5px;
+}
+.trw-ftr-cmb .iui-combobox-header
+{
+    height: 23px;
+}

@@ -1,0 +1,41 @@
+<div calss="topPanel">
+        <div style="margin-left:5px; margin-top:2px" class="btn-group" data-toggle="buttons">
+            <button (click)="fitColumns()" class="btn btn-primary btn-sm">Size Columns to Fit</button>
+            <button (click)="resetColumns()" class="btn btn-secondary btn-sm">Reset Columns Size</button>
+            <button (click)="showLiteral(true)" class="btn btn-primary btn-sm">Show Literal</button>
+            <button (click)="showLiteral(false)" class="btn btn-secondary btn-sm">Hide Literal</button>
+        </div>
+    
+        <label>
+            <input type="checkbox" (change)="showToolPanel=$event.target.checked"/>
+            Show Tool Panel
+        </label>
+    </div>
+    
+    
+    <!---<h1>Simple ag-Grid Angular Example</h1>-->
+    <ag-grid-angular style="margin-left:5px; margin-top:2px; border-radius: 5px; width: 99%; height: 83%;"
+        class="ag-theme-fresh"
+        [gridOptions]="gridOptions"
+        [showToolPanel]="showToolPanel"
+        [domLayout]="autoheight"
+        [enableColResize]="true"
+    
+        [rowData]="rowData"
+        
+        [columnDefs]="columnDefs"
+        [suppressCellSelection]="false"
+        [enableServerSideFilter]="true"
+        [enableServerSideSorting]="false"
+    
+        [maxConcurrentDatasourceRequests]="maxConcurrentDatasourceRequests"
+    
+        rowModelType = "enterprise"
+        rowSelection="single"
+    
+        (rowClicked)="onRowClicked($event)"
+        (rowSelected)="onRowSelected($event)"
+        (gridReady)="onGridReady($event)"
+        >
+    </ag-grid-angular>
+    

@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+/**************************************************************************/
+/***************************** Home Screen ********************************/
+/**************************************************************************/
+div.container {
+  width: 100%;
+  /*border: 1px solid gray;*/
+}
+
+header, footer {
+  padding: 1em;
+  color: white;
+  background-color: rgb(75, 71, 71);
+  clear: left;
+  text-align: center;
+  border-radius: 5px;
+}
+
+article {
+  /*margin-left: 170px;
+  border-left: 1px solid gray;*/
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 1em;
+  font-weight: 600;
+  font-size: 14px;
+  /*overflow: hidden;*/
+}
+
+/**************************************************************************/
+/************ cell style ***************/
+/**************************************************************************/
+
+.ag-theme-fresh .classGreen {
+  color: green;
+}
+
+.ag-theme-fresh .classRed {
+  color: red;
+}
+
+.classPink {
+  color: rgb(241, 36, 180);
+}
+
+.classGrey {
+  color: grey;
+}
+
+.classOrange {
+  color: Orange;
+}
+
+.classBlue {
+  color: blue;
+}
+
+.rag-red {
+  background-color: lightcoral;
+}
+.rag-green {
+  background-color: lightgreen;
+}
+.rag-amber {
+  background-color: lightsalmon;
+}
+
+.rag-red-outer .rag-element {
+  background-color: lightcoral;
+}
+
+.rag-green-outer .rag-element {
+  background-color: lightgreen;
+}
+
+.rag-amber-outer .rag-element {
+  background-color: lightsalmon;
+}
+
+.actual {
+  background-color: rgba(0,255,0,.1);
+}
+.budget {
+  background-color: rgba(255,0,0,.1);
+}
+.negative {
+  color: red;
+}
+.rightAlign {
+  text-align: right;
+}
+
+/**************************************************************************/
+/************ Modal ***************/
+/**************************************************************************/
+
+/* Specific Modal Styles */
+.modal-dialog {
+  color: rgb(66, 65, 65);
+  background-color: rgb(194, 189, 189);
+  padding: 25px;
+}
+
+.modal.in {
+  display: initial;
+}
+
+.modal-header {
+  display: flex;
+  padding-bottom: 14px;
+
+  > h2 {
+    flex: 1;
+  }
+
+  .close {
+    background-color: #fff;
+    font-weight: 100;
+    font-size: 2.5rem;
+    border: 0;
+    border-radius: 999px;
+    padding: 0;
+    margin: 0;
+    line-height: 1rem;
+    height: 4rem;
+    width: 4rem;
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}
+/* /Specific Modal Styles */
+
+//$color-highlight: #4aabc9;
+$color-highlight: #f0f5f7;
+
+html, body {
+  //font-family: "Lato", Helvetica, Arial;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #444;
+  background: $color-highlight;
+  //background: linear-gradient(135deg, $color-highlight 0%,#d8dcdf 100%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  transition: .2s all;
+  &:focus {
+    outline: none;
+  }
+}
+
+button.big {
+  color: rgb(51, 49, 49);
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 10%;
+  height: 0px;
+  padding: 1rem 1rem 2rem 1rem;
+  background-color: silver;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background-color: #e4e4e4;
+  }
+}
+
+button.small {
+  color: rgb(51, 49, 49);
+  border: 0;
+  border-radius: 4px;
+  font-size: 12px;
+  width: 5%;
+  height: 0px;
+  padding: 0.25rem 0.25rem 1.2rem 0.25rem;
+  background-color: silver;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background-color: #e4e4e4;
+  }
+}
+
+h1, h2 {
+  font-family: 'Ariel', sans-serif;
+  font-weight: 200;
+}
+
+h1 {
+  //color: #fff;
+  padding: 30px;
+  margin: 0;
+}
+
+#content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#actions {
+  margin-top: -100px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**************************************************************************/
+/************  Spinner ************/
+/**************************************************************************/
+
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/**************************************************************************/
+/************  Top Navigator  *******************/
+/**************************************************************************/
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: black;
+ //overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  //background-color: #ddd;
+  color: grey;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: grey;
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+/**************************************************************************/
+/************  Hoverable Dropdown  *******************/
+/**************************************************************************/
+
+#props{
+  width: 50%;  
+  height: 35px;
+  margin-top: 15px; 
+  outline: none;
+  font-size: 13px;
+ }
+
+.dropbtn {
+  background-color: rgba(128, 128, 128, 0);
+  color: rgba(255, 255, 255, 0.56);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px grey;
+  z-index: 1;
+  font-size: 13px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #C5C2C2;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  color: white;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: black;
+  color: white;
+}
+
+
+/**************************************************************************/
+/****************************** Panels ************************************/
+/**************************************************************************/
+
+.headerContainer {
+  //width: 33%;
+  float: left;
+  margin-top: 1px; 
+  margin-left: 15px; 
+  font-size: 14px;
+}
+
+.cellContainer {
+  width: 33%;
+  float: left;
+  margin-top: 1px; 
+  margin-left: 15px; 
+}
+
+.topPanel {
+  color:black;
+  height: 10%;
+  margin-top: 5px; 
+  margin-left: 5px; 
+  background-color: #c0c2ce;
+  border-radius: 5px;
+  min-width: 60%;
+  //resize: both;
+  //overflow: hidden;
+}
+
+.panel-body {
+  height: 100%; 
+  width: 100%;
+}
+
+.panel-doclist {
+  //margin-top: 2px; 
+  //background-color: #e5e6eb;
+  //background-color: lightgreen;
+  border-radius: 15px;  
+  height: 550px; 
+  width: 100%;
+  resize: both;
+  overflow-y: hidden;
+}
+
+.panel-docdetails {
+  //margin-top: 2px; 
+  //background-color: #e5e6eb;
+  border-radius: 15px;  
+  height: 600px; 
+  width: 90%;
+  resize: both;
+  overflow-y: hidden;
+  // By changing the border-sizing I can set the height to 100% while still have 
+  //a padding. The padding will reduce the area inside the container where a 
+  //scrolling element can be placed, and the header can be placed in the room 
+  //created by the padding so that it doesn't interfer with the scrolling element. 
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding-top: 70px; // should be equa to h4 marrgin-top in tooBar.component.html 
+}
+
+/**************************************************************************/
+/****************************** Splitter ************************************/
+/**************************************************************************/
+
+.leftDiv {
+  height: 100%;
+  //width: 300px;
+  color: black;
+  //background-color:#404040;
+  //background-color: red;
+  padding: 4px;
+  //overflow: hidden;
+  //overflow-y: hidden;
+}
+
+.rightDiv {
+  height:100%;
+  //color:#000;
+  background-color:#cdcdd4;
+  //background-color: orange;
+  //padding:4px 4px 4px 20px;
+  //overflow-y: hidden; // hide vertical
+  //overflow-x: hidden; // hide horizontal
+}
+
+//.splitter {
+ // background-color:#801010;
+//}
+
+/**************************************************************************/
+/****************************** ag-grid ************************************/
+/**************************************************************************/
+// To eliminate the border around a cell:
+/*
+.ag-cell-focus,.ag-cell-no-focus{
+    border:none !important;
+  }
+
+.ag-cell:focus{
+  border:none !important;
+  outline: none;
+}
+*/
+
+

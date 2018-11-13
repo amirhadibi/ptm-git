@@ -1,0 +1,147 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+<div >
+  <h1 mat-dialog-title>Report Properties</h1> 
+  <!--<div mat-dialog-content class="dialog-container"  [style.fontSize.px]="12">-->
+  <div mat-dialog-content style="width: 505px; font-size: 12px;">
+    <mat-form-field>
+      <mat-select placeholder="Report Type" (change)="onReportTypeChange($event.value)" [(ngModel)]="selectedType">
+        <mat-option *ngFor="let r of repType_list" [value]="r.FINANCIALREPORTTYPE + ': ' + r.DESCRIPTION">
+          {{ r.FINANCIALREPORTTYPE }}: {{ r.DESCRIPTION }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+      <mat-select placeholder="Auditor" (change)="onAuditorsChange($event.value)" [(ngModel)]="selectedAuditor">
+        <mat-option *ngFor="let a of auditors_list" [value]="a.AUDITORCODE + ': ' + a.DESCRIPTION">
+          {{ a.AUDITORCODE }}: {{ a.DESCRIPTION }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <input 
+        matInput [matDatepicker]="picker" 
+        placeholder="Report Date" 
+        (ngModelChange)="onReportDateChange($event)" 
+        [ngModel]="startDate"
+      >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+      
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-checkbox (change)="onConsolidatedChange($event)" [(ngModel)]="consolidated">Consolidated </mat-checkbox>
+
+    <br>
+    
+    <mat-form-field>
+      <mat-select placeholder="Multiplier" (change)="onMultipliersChange($event.value)" [(ngModel)]="selectedMultiplier">
+          <mat-option *ngFor="let m of multipliers_list" [value]="m.MULTIPLIERCODE + ': ' + m.DESCRIPTION">
+              {{ m.MULTIPLIERCODE }}: {{ m.DESCRIPTION }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-checkbox (change)="onFYEChange($event)" [(ngModel)]="fyeChange">Fiscal Year End Change</mat-checkbox>
+
+    <br>
+    
+    <mat-form-field>
+      <mat-select placeholder="Currency" (change)="onCurrencyChange($event.value)" [(ngModel)]="selectedCurrency">
+          <mat-option *ngFor="let c of currency_list" [value]="c.CURRENCYCODE + ': ' + c.ISODESCRIPTION">
+              {{ c.CURRENCYCODE }}: {{ c.ISODESCRIPTION }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+      <mat-select placeholder="Accounting Principle" (change)="onPrincipleTypeChange($event.value)" [(ngModel)]="selectedPrincipleTypeID">
+        <mat-option *ngFor="let p of principleTypes_list" [value]="p.PRINCIPLETYPEID + ': ' + p.DESCRIPTION">
+          {{p.PRINCIPLETYPEID }}: {{ p.DESCRIPTION }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    
+    <mat-form-field>
+      <mat-select placeholder="Source Document" (change)="onSourceTypeChange($event.value)" [(ngModel)]="selectedSourceTypeID">
+        <mat-option *ngFor="let s of sourceTypes_list" [value]="s.SOURCETYPEID + ': ' + s.DESCRIPTION">
+          {{ s.SOURCETYPEID }}: {{ s.DESCRIPTION }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+        <input matInput placeholder="Period Fiscal Year"  (ngModelChange)="onPeriodFYChange($event)" [(ngModel)]="selectedPeriodFY">
+    </mat-form-field>
+
+    <br>
+    
+    <mat-form-field>
+      <mat-select placeholder="List of Previous Reports" (change)=onPreviousReportChange($event.value)>
+        <mat-option 
+          *ngFor="let pr of previousRepotsList" 
+          [value]="pr.REPORTDATE + '::' + pr.FINANCIALREPORTTYPE + '::' + pr.CURRENCYCODE + '::' + pr.MULTIPLIERCODE">
+          {{ pr.REPORTDATE }}: {{ pr.FINANCIALREPORTTYPE}}: {{ pr.CURRENCYCODE }}: {{ pr.MULTIPLIERCODE }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>    
+        <input matInput placeholder="Text extracted from header table" disabled>
+        <div>
+          <label> {{selectedExtractedText}} </label>
+        </div>    
+    </mat-form-field>
+
+    <br>
+    <mat-label>List of report properties saved</mat-label>
+    <reportList #reportList 
+      (previousReportsEvent)="onPreviousReportChange(reportList.selectedItemText)"
+      (alertEvent)="alert.showAlert(reportList.gMessage)"
+    ></reportList>
+      
+    <br>
+    <mat-form-field>
+      <mat-select placeholder="Wells Period" (change)="onWellsPeriodsChange($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option 
+          *ngFor="let wp of wellsPeriodsList"
+          [value]="wp.REPORTDATE + '::' + wp.FINANCIALREPORTTYPE + '::' + wp.CURRENCYCODE + '::' + wp.MULTIPLIERCODE">
+          {{ wp.REPORTDATE }}: {{ wp.FINANCIALREPORTTYPE }}: {{ wp.CURRENCYCODE }}: {{ wp.MULTIPLIERCODE }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+      <mat-select placeholder="Destination Period" (change)="onDocumentHeaderChange($event.value)">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let h of documentHeaderList" 
+        [value]="h.REPORTDATE + '::' + h.REPORTTYPE + '::' + h.CURRENCYCODE + '::' + h.MULTIPLIER">
+        {{ h.REPORTDATE }}: {{ h.REPORTTYPE }}: {{ h.CURRENCYCODE }}: {{ h.MULTIPLIER }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+
+    <br>
+    <alert #alert hidden></alert>
+    <mat-label>Mapped Wells Period</mat-label>
+    <mappedList #mappedList 
+      (alertEvent)="alert.showAlert(mappedList.gMessage)" 
+    ></mappedList>
+
+  </div>
+
+  <br>
+
+</div>
+<div mat-dialog-actions align="bottom">
+    <!--<button mat-button [mat-dialog-close]="" cdkFocusInitial>OK</button>-->
+    <button mat-raised-button color="primary" (click)="onCloseConfirm()" cdkFocusInitial>OK</button>  
+    <button mat-raised-button color="primary" (click)="onCloseCancel()">Cancel</button>  
+</div>

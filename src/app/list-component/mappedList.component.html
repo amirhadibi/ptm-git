@@ -1,0 +1,40 @@
+<div>
+        <button type="button" 
+            (click)="add()"
+            class="btn btn-small" 
+            data-toggle="tooltip" 
+            title="Add">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" hint="Open"></span>
+        </button>
+        <button type="button" 
+            (click)="delete()"
+            class="btn btn-small" 
+            data-toggle="tooltip" 
+            title="Delete">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true" hint="Open"></span>
+        </button>
+        <button type="button" 
+            (click)="showAlert('This module will be implemented soon!')"
+            class="btn btn-small" 
+            data-toggle="tooltip" 
+            title="Save"
+            *ngIf="visible"
+        >
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+        </button>
+        <button type="button" 
+            (click)="clear()"
+            class="btn btn-small" 
+            data-toggle="tooltip" 
+            title="Clear">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+        <iui-listbox #lbMapped [appRef]="applicationRef"
+            [items]="items" [allowDrag]="false" [allowFocus]="true"
+            [controlStyle]="listStyle" [selectionMode]="selMode" [virtualMode]="true">
+            <ng-template let-item>
+                <span (click)="onClick(item)">{{item.text}}</span>
+            </ng-template>
+        </iui-listbox>
+    
+    </div>

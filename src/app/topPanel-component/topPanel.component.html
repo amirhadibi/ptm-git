@@ -1,0 +1,42 @@
+
+<div class="topPanel">
+  <!--<span *ngFor="let h of documentHeaderList">-->
+  <span>  
+     <!-- <div class="cellContainer">-->
+      <!--<div class="headerContainer">-->
+        <mat-form-field>
+          <mat-select placeholder="Header Periods" (change)="onChange($event.value)" [(ngModel)]="selectedPeriod">
+          <mat-option *ngFor="let h of documentHeaderList; let i = index;" 
+              [value]="h.CAPTION + ' ' + h.REPORTDATE_TEXT + '::' + h.REPORTTYPE + '::' + h.AUDITOR 
+                  + '::' + h.MULTIPLIER + '::' + h.CURRENCYCODE + '::' + h.REPORTDATE 
+                  + '::' + h.CONSOLIDATED 
+                  + '::' + h.FYECHANGE 
+                  + '::' + h.PERIODFISCALYEAR 
+                  + '::' + h.SOURCETYPEID + '::' + h.PRINCIPLETYPEID
+                  + '::' + h.PERIODSTARTDATE + '::' + h.SOURCEDATE
+                  + '::' + i">
+              {{ h.REPORTDATE }}: {{ h.REPORTTYPE}}: {{ h.CURRENCYCODE }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>  
+
+      &nbsp;&nbsp;
+
+      <button type="button" 
+        (click)="openDialog()"
+        class="btn btn-default" 
+        data-toggle="tooltip" 
+        title="Properties">
+        <span class="glyphicon glyphicon-cog" aria-hidden="true" hint="Open"></span>
+      </button>
+    <!--</div> <!- - End of headerContainer -->
+  </span>                                 
+</div> <!-- End of topPanel -->
+                        
+<!--
+
+      <option *ngFor="let h of documentHeaderList" [value]="h.REPORTDATE_TEXT">
+        {{ h.REPORTDATE_TEXT }}
+      </option>
+
+-->

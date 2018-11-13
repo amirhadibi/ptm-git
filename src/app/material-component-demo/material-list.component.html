@@ -1,0 +1,27 @@
+  <!-- Load the Angular Material stylesheet -->
+  <!--
+  <link href="https://unpkg.com/@angular/material/prebuilt-themes/deeppurple-amber.css" rel="stylesheet">
+  <link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+  <link href="https://unpkg.com/@angular/material/prebuilt-themes/pink-bluegrey.css" rel="stylesheet">
+  <link href="https://unpkg.com/@angular/material/prebuilt-themes/purple-green.css" rel="stylesheet">
+  -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+  <section class="mat-typography">
+      <hello name="{{ name }}"></hello>
+  </section>
+
+  <p>
+    Area 3 is initially selected. The displayed array below updates as options are selected/deselected.
+  </p>
+  <div>
+    Selected: {{ selectedOptions | json }}
+  </div>
+  
+  <mat-selection-list #list>
+      <mat-list-option *ngFor="let tta of taskTypeAreas" [selected]="tta.selected" (click)="onAreaListControlChanged(list)" [value]="tta.name">
+              {{tta.name}}
+              <mat-divider></mat-divider>
+      </mat-list-option>
+  </mat-selection-list>
