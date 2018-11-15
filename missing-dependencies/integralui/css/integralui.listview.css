@@ -1,0 +1,26 @@
+@import './integralui.css';
+
+.iui-listview
+{
+    background: white;
+	border: thin solid #cecece;
+    cursor: default;
+	overflow: auto;
+	padding: 1px;
+    position: relative;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Disabled State */
+.iui-listview-disabled div, .iui-listview-disabled ul
+{
+    opacity: 0.75;
+    pointer-events: none;
+}
+
