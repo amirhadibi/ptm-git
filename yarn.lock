@@ -1745,9 +1745,9 @@ di@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/di/-/di-0.0.1.tgz#806649326ceaa7caa3306d75d985ea2748ba913c"
 
-diff@^3.0.1, diff@^3.1.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-3.4.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
+diff@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
 
 diffie-hellman@^5.0.0:
   version "5.0.2"
@@ -6282,7 +6282,7 @@ ts-node@~2.0.0:
   dependencies:
     arrify "^1.0.0"
     chalk "^1.1.1"
-    diff "^3.1.0"
+    diff "^3.5.0"
     make-error "^1.1.1"
     minimist "^1.2.0"
     mkdirp "^0.5.1"
@@ -6321,7 +6321,7 @@ tslint@~4.4.2:
   dependencies:
     babel-code-frame "^6.20.0"
     colors "^1.1.2"
-    diff "^3.0.1"
+    diff "^3.5.0"
     findup-sync "~0.3.0"
     glob "^7.1.1"
     optimist "~0.6.0"
